@@ -5,7 +5,7 @@ import envsConfig from "./conf/envConfs";
 
 mongoose.set("strictQuery", true);
 if (!envsConfig.dbHost) {
-	console.error("АЛО!!! ГДЕ dbHost!!!!");
+	console.error("Database URL must be specified in .env");
 	process.exit(1);
 }
 
