@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import kpiRoutes from "./routes/kpiRoutes.ts";
+import kpiRoutes from "./routes/kpiRoutes";
 
 const app = express();
 
