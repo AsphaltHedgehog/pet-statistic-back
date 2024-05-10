@@ -6,7 +6,6 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "nodemon src/app.js",
 		"start:dev": "cross-env NODE_ENV=development nodemon src/server.ts"
 	},
 	"keywords": [],
@@ -20,7 +19,6 @@
 		"express": "^4.19.2",
 		"helmet": "^7.1.0",
 		"mongoose": "^8.3.4",
-		"mongoose-currency": "^0.3.0",
 		"morgan": "^1.10.0",
 		"typescript": "^5.4.5"
 	},
