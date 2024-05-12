@@ -1,4 +1,3 @@
-// const mongooseCurrency = require("mongoose-currency");
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
@@ -14,23 +13,27 @@ const mouthSchema = new Schema(
 		mouth: String,
 		revenue: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		expenses: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		operationalExpenses: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		nonOperationalExpenses: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 	},
 	{ toJSON: { getters: true } }
@@ -41,13 +44,15 @@ const daySchema = new Schema(
 		date: String,
 		revenue: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		expenses: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 	},
 	{ toJSON: { getters: true } }
@@ -57,25 +62,29 @@ const KPISchema = new Schema(
 	{
 		totalProfit: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		totalRevenue: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		totalExpenses: {
 			type: mongoose.Types.Decimal128,
-			currency: "USD",
-			get: (v: number) => v / 100,
+			set: function (v: string) {
+				return parseFloat(v);
+			},
 		},
 		expensesByCategory: {
 			type: Map,
 			of: {
 				type: mongoose.Types.Decimal128,
-				currency: "USD",
-				get: (v: number) => v / 100,
+				set: function (v: string) {
+					return parseFloat(v);
+				},
 			},
 		},
 		mouthSchema: [mouthSchema],
