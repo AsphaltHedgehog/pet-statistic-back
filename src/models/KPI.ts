@@ -95,4 +95,8 @@ const KPISchema = new Schema(
 
 const KPI = mongoose.model("KPI", KPISchema);
 
+export const Mouth = mongoose.model("Mouth", mouthSchema);
+
+export const Day = mongoose.model("Day", daySchema);
+
 export default KPI;
