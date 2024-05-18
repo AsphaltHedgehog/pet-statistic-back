@@ -1,40 +1,34 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-// interface IKPISchema {
-//   totalProfit: loadType.number
-//   totalRevenue: loadType.number
-//   totalExpenses: loadType.number
-//   expensesByCategory: string:loadType.number[]
-// }
-
 const mouthSchema = new Schema(
 	{
 		mouth: String,
 		revenue: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		expenses: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		operationalExpenses: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		nonOperationalExpenses: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
+		month: { type: String },
 	},
 	{ toJSON: { getters: true } }
 );
@@ -43,13 +37,13 @@ const daySchema = new Schema(
 	{
 		date: String,
 		revenue: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		expenses: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
@@ -61,19 +55,19 @@ const daySchema = new Schema(
 const KPISchema = new Schema(
 	{
 		totalProfit: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		totalRevenue: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
 		},
 		totalExpenses: {
-			type: mongoose.Types.Decimal128,
+			type: Number,
 			set: function (v: string) {
 				return parseFloat(v);
 			},
@@ -81,22 +75,18 @@ const KPISchema = new Schema(
 		expensesByCategory: {
 			type: Map,
 			of: {
-				type: mongoose.Types.Decimal128,
+				type: Number,
 				set: function (v: string) {
 					return parseFloat(v);
 				},
 			},
 		},
-		mouthSchema: [mouthSchema],
+		monthlyData: [mouthSchema],
 		dailyData: [daySchema],
 	},
 	{ toJSON: { getters: true }, timestamps: true }
 );
 
 const KPI = mongoose.model("KPI", KPISchema);
-
-export const Mouth = mongoose.model("Mouth", mouthSchema);
-
-export const Day = mongoose.model("Day", daySchema);
 
 export default KPI;
