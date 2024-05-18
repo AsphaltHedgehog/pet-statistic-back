@@ -2,8 +2,8 @@ import app from "./app";
 import mongoose from "mongoose";
 import "dotenv/config";
 import envsConfig from "./conf/envConfs";
-import KPI from "./models/KPI";
-import { kpis } from "./data/data";
+// import KPI from "./models/KPI";
+// import { kpis } from "./data/data";
 
 mongoose.set("strictQuery", true);
 if (!envsConfig.dbHost) {
@@ -18,8 +18,8 @@ mongoose
 			console.log(`Server running. Use our API on port: ${envsConfig.port}`);
 		});
 
-		await mongoose.connection.db.dropDatabase();
-		KPI.insertMany(kpis);
+		// await mongoose.connection.db.dropDatabase();
+		// await KPI.insertMany(kpis);
 	})
 	.catch((error) => {
 		console.log(error.message);
