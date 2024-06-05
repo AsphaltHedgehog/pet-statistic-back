@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import envsConfig from "./conf/envConfs";
 // import KPI from "./models/KPI";
-// import { kpis } from "./data/data";
+// import Product from "./models/Product";
+// import Transaction from "./models/Transaction";
+// import { kpis, products, transactions } from "./data/data";
 
 mongoose.set("strictQuery", true);
 if (!envsConfig.dbHost) {
@@ -18,8 +20,11 @@ mongoose
 			console.log(`Server running. Use our API on port: ${envsConfig.port}`);
 		});
 
+		// seed DB with data
 		// await mongoose.connection.db.dropDatabase();
 		// await KPI.insertMany(kpis);
+		// await Product.insertMany(products);
+		// await Transaction.insertMany(transactions);
 	})
 	.catch((error) => {
 		console.log(error.message);
