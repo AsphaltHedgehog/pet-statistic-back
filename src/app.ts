@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import kpiRoutes from "./routes/kpiRoutes";
+import productRoutes from "./routes/productRoutes";
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/kpi", kpiRoutes);
+app.use("/product", productRoutes);
 
 export default app;
