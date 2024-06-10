@@ -5,6 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import kpiRoutes from "./routes/kpiRoutes";
 import productRoutes from "./routes/productRoutes";
+import transactionsRoutes from "./routes/transactionsRoutes";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use(cors());
 
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
+app.use("/transactions", transactionsRoutes);
 
 export default app;
