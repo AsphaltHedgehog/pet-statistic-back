@@ -20,6 +20,6 @@ app.use(cors());
 
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
-app.use("/transactions", transactionsRoutes);
+app.use("/transaction", transactionsRoutes);
 
 export default app;
